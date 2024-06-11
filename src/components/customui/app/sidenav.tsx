@@ -37,38 +37,54 @@ export const AppSideNav =({style}:{style?:string})=>{
             route:`/${action}/interface`,
             icon:"forthnav_icon.png"
         },{
-            name:"Web Overides",
+            name:"Website Overides",
             route:`/${action}/web_overides`,
             icon:"fifthnav_icon.png"
         },{
-            name:"App Permissions",
+            name:"Permissions",
             route:`/${action}/app_permission`,
             icon:"sixthnav_icon.png"
         },{
-            name:"App download",
-            route:`/${action}/appdownload`,
+            name:"Native Navigation",
+            route:`/${action}/native_navigation`,
             icon:"seventhnav_icon.png"
         },{
-            name:"Native Plugins",
-            route:`/${action}/native_plugins`,
+            name:"Push Notification",
+            route:`/${action}/push_notification`,
             icon:"eightnav_icon.png"
         },{
-            name:"App Service",
-            route:`/${action}/app_service`,
+            name:"Native Pluggins",
+            route:`/${action}/native_plugins`,
             icon:"ninthnav_icon.png"
         },{
-            name:"App Access",
-            route:`/${action}/app_access`,
+            name:"Build & Download",
+            route:`/${action}/appdownload`,
             icon:"tenthnav_icon.png"
+        },{
+            name:"Services",
+            route:`/${action}/app_service`,
+            icon:"eleventhnav_icon.png"
+        },{
+            name:"Support",
+            route:`/${action}/app_support`,
+            icon:"twelvethnav_icon.png"
+        },{
+            name:"License",
+            route:`/${action}/app_license`,
+            icon:"thirteenthnav_icon.png"
+        },{
+            name:"Access",
+            route:`/${action}/app_access`,
+            icon:"fortheenthnav_icon.png"
         }
     ]
 
     return(
         <nav
             id={`${style?"":"full-screen-example"}`}
-            className={`${style?style:"bg-white fixed left-0 top-0 z-[1035] h-screen w-60 -translate-x-full overflow-hidden shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0 dark:bg-zinc-800"} p-4`}
+            className={`${style?style:"bg-white fixed left-0 top-0 z-[1035] h-full w-60 -translate-x-full overflow-scroll shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0 dark:bg-zinc-800"} p-4`}
             data-te-sidenav-init
-            data-te-sidenav-content="#content">
+            data-te-sidenav-content="#content" style={{borderTopLeftRadius: "7px"}}>
             <div>
                 <div className="flex justify-between items-center">
                     <Text
@@ -83,7 +99,7 @@ export const AppSideNav =({style}:{style?:string})=>{
                     </div>
                 </div>
                 <ul
-                    className="relative m-0 list-none px-[0.2rem]"
+                    className="relative m-0 list-none px-[0.4rem]"
                     data-te-sidenav-menu-ref
                     >
                         {

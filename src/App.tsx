@@ -13,12 +13,28 @@ import { AppDownloadPage } from "./pages/app/appdownload";
 import { NativePluginPage } from "./pages/app/native_pugin";
 import { AppServicePage } from "./pages/app/app_service";
 import { AppAccessPage } from "./pages/app/app_access";
+import { Member } from "./components/memberFames/member/member";
+import { MyAccount } from "./components/myAccount/MyAccount";
+import { Settings } from "./components/settings/Settings";
+import { SupportPage } from "./components/supportPage/SupportPage";
+import { PushNotification } from "./components/pushNotification/PushNotification";
+import { NativeNavigation } from "./components/nativeNavigation/NativeNavigation";
+
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<DashboardHome />} />
+        <Route path="members">
+          <Route path="/members" element={<Member />} />
+          <Route path="/members/myaccount" element={<MyAccount />} /> 
+        </Route>
+        <Route path="settings">
+          <Route path="/settings" element={<Settings />} />
+        </Route>
         <Route path="app">
+          <Route path="/app/settings" element={<Settings />} />
+          <Route path="/app/members" element={<Member />} />
           <Route path="/app/:action/overview" element={<OverviewPage />} />
           <Route path="/app/:action/branding" element={<BrandingPage />} />
           <Route path="/app/:action/interface" element={<InterfacePage />} />
@@ -42,6 +58,9 @@ function App() {
             path="/app/:action/appdownload"
             element={<AppDownloadPage />}
           />
+          <Route path="/app/:action/native_navigation" element={<NativeNavigation />} />
+          <Route path="/app/:action/push_notification" element={<PushNotification />} />
+          <Route path="/app/:action/app_support" element={<SupportPage />} />
           <Route path="/app/:action/app_access" element={<AppAccessPage />} />
           <Route path="/app/:action/app_service" element={<AppServicePage />} />
         </Route>
@@ -50,6 +69,7 @@ function App() {
           <Route path="/auth/signup" element={<SignupPage />} />
           <Route path="/auth/reset_password" element={<ResetPage />} />
         </Route>
+        
       </Routes>
     </Router>
   );

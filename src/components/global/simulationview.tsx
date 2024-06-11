@@ -17,7 +17,7 @@ import { SelectItem } from "../ui/select";
 
 export const SimulationView = () => {
   return (
-    <div className="bg-white flex flex-col gap-4 w-[20rem] p-4">
+    <div className="bg-white flex flex-col gap-4 w-[20.3rem] p-4">
       <div className="flex justify-between items-center">
         <div className="flex gap-2 items-center">
           <Text style="text-sm text-start text-[grey]" value="Simulator" />
@@ -57,12 +57,12 @@ export const SimulationView = () => {
         </div>
       </div>
       <div className="flex gap-4 justify-between">
-        <Button className="flex items-center gap-4 text-sm cursor-pointer justify-between">
-          <AiOutlineUpload size="1.3rem" color="grey" />
+        <Button style={{border: "1px solid #000000"}} className="flex items-center gap-1 text-sm text-dark bg-white cursor-pointer justify-between">
+          <AiOutlineUpload size="1.3rem" color="black" />
           Download
         </Button>
-        <Button className="flex items-center gap-2 bg-white border text-black">
-          <AiOutlineReload color="grey" />
+        <Button className="flex items-center gap-2 bg-dark border text-light">
+          <AiOutlineReload color="white" />
           Rebuild
         </Button>
       </div>

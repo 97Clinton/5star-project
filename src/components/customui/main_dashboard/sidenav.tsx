@@ -8,6 +8,7 @@ export const SideNav = ({ style }: { style?: string }) => {
   const action = "create";
   const location = useLocation();
   const { pathname } = location;
+
   useEffect(() => {
     const init = async () => {
       const { Sidenav, Ripple, Tab, initTE } = await import("tw-elements");
@@ -83,7 +84,7 @@ export const SideNav = ({ style }: { style?: string }) => {
     },
     {
       name: "Create New app",
-      route: `/${action}`,
+      route: `/${action}/overview`,
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"

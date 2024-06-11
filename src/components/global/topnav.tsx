@@ -9,11 +9,12 @@ import{
 } from "../ui/navigation-menu"
 // import Avatar from 'react-avatar';
 import { useNavigate } from "react-router-dom";
+import { AppSideNav } from "../customui/app/sidenav";
 
 export const TopNav =()=>{
     const navigate = useNavigate()
     return(
-        <div className="mb-2 flex lg:flex-row xl:flex-row md:flex-col sm:flex-col justify-between md:flex-col-reverse sm:flex-col-reverse items-center w-full gap-2 bg-black">
+        <div className="mb-0 flex lg:flex-row xl:flex-row md:flex-col pl-5 pr-5 sm:flex-col justify-between md:flex-col-reverse sm:flex-col-reverse items-center w-[100%] gap-2 bg-black">
             <div className="flex items-center justify-between w-full bg-black p-2 rounded">
                 <div className="flex gap-2 items-center">
                     <div className="lg:hidden xl:hidden md:block sm:block">
@@ -26,9 +27,16 @@ export const TopNav =()=>{
                             <span className="block ">
                                 <AiOutlineMenu
                                     size="1.5rem"
-                                    color="grey"
+                                    color="white"
                                 />
                             </span>
+                            <div className="mobileNav">
+                                <AppSideNav/>
+                            </div>
+                            <div className="tabletNav">
+                                <AppSideNav/>
+                            </div>
+                            
                         </div>
                     </div>
                     <div className=" w-[6rem] h-[3.5rem] relative">
@@ -40,7 +48,7 @@ export const TopNav =()=>{
                     </div>
                     
                 </div>
-                <div className="flex gap-[0.5rem] items-center bg-[grey] p-4 rounded-md"> 
+                <div className="flex gap-[0.5rem] items-center bg-[grey] p-3 rounded-md"> 
                     <span>
                     
                         <NavigationMenu>
@@ -48,9 +56,9 @@ export const TopNav =()=>{
                                 <NavigationMenuItem>
                                 <NavigationMenuTrigger>
                                     {/* <Avatar name="Hamzat lawal" size={"150"} round={true}/> */}
-                                    <div className=" w-[0.8rem] h-[0.8rem] relative">
+                                    <div className=" w-[1.8rem] h-[1.8rem] relative">
                                         <img
-                                            src={`/rafiki.svg`}
+                                            src={`/userDp.png`}
                                             alt="object not found"
                                             className="w-full"
                                         />

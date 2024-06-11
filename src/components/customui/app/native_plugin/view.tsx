@@ -101,9 +101,9 @@ export const NativePluginSection =()=>{
                                             className="flex w-full gap-4 flex-wrap items-center"
                                         >
                                             <div className="flex-grow flex gap-2 items-center">
-                                                <div className=" w-[0.8rem] h-[0.8rem] relative">
+                                                <div className=" w-[1.3rem] h-[1.3rem] relative">
                                                     <img
-                                                        src={`/${plugins?.img}`}
+                                                        src={`/${plugins?.img}.png`}
                                                         alt="object not found"
                                                         className="w-full"
                                                     />
