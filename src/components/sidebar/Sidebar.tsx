@@ -26,10 +26,10 @@ export function Sidebar() {
                             <img src="../public/users-icon.png" alt="" />
                             <p>Members</p>
                         </div>
-                        <div className="list" onClick={() => console.log('Clicked')}>
+                        <div className="list" onClick={() => navigate("/settings")}>
                             <img src="../public/settings-icon.png" alt="" />
                             <p>Settings</p></div>
-                        <div className="list" onClick={() => console.log('Clicked')}>
+                        <div className="list" onClick={() => navigate("/app/edit/overview")}>
                             <img src="../public/create-icon.png" alt="" />
                             <p>Create New App</p>
                         </div>

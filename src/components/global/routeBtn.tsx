@@ -24,7 +24,7 @@ export const RouteBtn =({
                 href="#"
                 data-te-sidenav-link-ref
             >
-                <div className=" w-[0.8rem] h-[0.8rem] relative me-4">
+                <div className=" w-[1rem] h-[1rem] relative me-4">
                     <img
                         src={`/${icon}`}
                         alt="object not found"

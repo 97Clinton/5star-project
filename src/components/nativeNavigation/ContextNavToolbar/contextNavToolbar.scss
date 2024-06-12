@@ -99,6 +99,9 @@
             @include tablet {
                 width: 45%;
             }
+            @include mobile {
+                width: 75%;
+            }
 
             p {
                 margin-bottom: 0;
@@ -121,6 +124,10 @@
                     align-items: center;
                     justify-content: center;
                     padding: 0;
+
+                    @include mini {
+                        padding-left: 10px;
+                    }
 
                     input {
                         margin-right: 5px;
@@ -180,6 +187,14 @@
             @include miniDesktop {
                 display: flex;
                 align-items: flex-start;
+            }
+            @include mobile {
+                width: 90%;
+            }
+            @include mini {
+                display: flex;
+                flex-direction: column;
+                width: 60%;
             }
 
             &:last-child {
