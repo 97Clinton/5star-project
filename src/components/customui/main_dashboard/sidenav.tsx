@@ -84,7 +84,7 @@ export const SideNav = ({ style }: { style?: string }) => {
     },
     {
       name: "Create New app",
-      route: `/${action}/overview`,
+      route: `/${action}`,
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"

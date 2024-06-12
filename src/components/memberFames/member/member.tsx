@@ -3,29 +3,11 @@ import "./member.scss";
 import { Sidebar } from "@/components/sidebar/Sidebar";
 import * as React from 'react';
 import Backdrop from '@mui/material/Backdrop';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
 import { useNavigate } from "react-router-dom";
 
 export function Member() {
-    const [open, setOpen] = React.useState(false);
-    const [selectedValue, setSelectedValue] = React.useState('a');
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setSelectedValue(event.target.value);
-      event.preventDefault();
-    };
+    const [open, setOpen] = React.useState(false);    
     const navigate = useNavigate();
-
-    const controlProps = (item: string) => ({
-        checked: selectedValue === item,
-        onChange: handleChange,
-        value: item,
-        name: 'size-radio-button-demo',
-        inputProps: { 'aria-label': item },
-      });
 
     const handleClose = () => {
       setOpen(false);
@@ -95,23 +77,18 @@ export function Member() {
                                 </div>
                             </div>
                             <div className="center">
-                                <FormControl className="roleForm">
-                                    <FormLabel id="demo-form-control-label-placement" style={{color: "#000000"}}>Organization Role</FormLabel>
-                                    <RadioGroup
-                                      className="radioForm"
-                                      row
-                                      aria-labelledby="demo-form-control-label-placement"
-                                      name="position"
-                                      defaultValue="top"
-                                    >
-                                        <div className="left">
-                                            <FormControlLabel value="end" control={<Radio {...controlProps('a')} size="smaller" color="default"/>} label="Owner" />
-                                        </div>
-                                        <div className="right">
-                                            <FormControlLabel value="end" control={<Radio {...controlProps('b')} size="smaller" color="default" />} label="Collaboration" />
-                                        </div>
-                                    </RadioGroup>
-                                </FormControl>
+                                <p>Organization Role</p>
+                                <form className="radioGroup">
+                                    <div className="form-check">
+                                      <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                                      <label className="form-check-label" htmlFor="inlineRadio1">Owner</label>
+                                    </div>
+                                    <div className="form-check">
+                                      <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                      <label className="form-check-label" htmlFor="inlineRadio2">Collaboration</label>
+                                    </div>
+                                </form>
+                                
                                 <p>App access</p>
                                 <div className="access">
                                     <div className="leftAccess">
