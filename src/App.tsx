@@ -19,6 +19,9 @@ import { Settings } from "./components/settings/Settings";
 import { SupportPage } from "./components/supportPage/SupportPage";
 import { PushNotification } from "./components/pushNotification/PushNotification";
 import { NativeNavigation } from "./components/nativeNavigation/NativeNavigation";
+import { EditApp } from "./components/EditApp/EditApp";
+import { CreateAppOverview } from "./components/CreateAppOverview/CreateAppOverview";
+import { Plan } from "./components/plan/Plan";
 
 function App() {
   return (
@@ -32,10 +35,13 @@ function App() {
         <Route path="settings">
           <Route path="/settings" element={<Settings />} />
         </Route>
+        
         <Route path="app">
           <Route path="/app/settings" element={<Settings />} />
           <Route path="/app/members" element={<Member />} />
-          <Route path="/app/:action/overview" element={<OverviewPage />} />
+          <Route path="/app/overview" element={<CreateAppOverview />} />
+          <Route path="/app/edit" element={<EditApp />} />
+          <Route path="/app/edit/overview" element={<OverviewPage />} />
           <Route path="/app/:action/branding" element={<BrandingPage />} />
           <Route path="/app/:action/interface" element={<InterfacePage />} />
           <Route
@@ -60,9 +66,10 @@ function App() {
           />
           <Route path="/app/:action/native_navigation" element={<NativeNavigation />} />
           <Route path="/app/:action/push_notification" element={<PushNotification />} />
-          <Route path="/app/:action/app_support" element={<SupportPage />} />
-          <Route path="/app/:action/app_access" element={<AppAccessPage />} />
           <Route path="/app/:action/app_service" element={<AppServicePage />} />
+          <Route path="/app/:action/app_support" element={<SupportPage />} />
+          <Route path="/app/:action/app_plan" element={<Plan />} />
+          <Route path="/app/:action/app_access" element={<AppAccessPage />} />
         </Route>
         <Route path="auth">
           <Route path="/auth/signin" element={<SigninPage />} />

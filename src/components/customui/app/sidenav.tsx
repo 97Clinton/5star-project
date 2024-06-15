@@ -69,8 +69,8 @@ export const AppSideNav =({style}:{style?:string})=>{
             route:`/${action}/app_support`,
             icon:"twelvethnav_icon.png"
         },{
-            name:"License",
-            route:`/${action}/app_license`,
+            name:"Plan",
+            route:`/${action}/app_plan`,
             icon:"thirteenthnav_icon.png"
         },{
             name:"Access",

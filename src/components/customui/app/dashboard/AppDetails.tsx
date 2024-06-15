@@ -3,9 +3,11 @@ import {
   IosIcon,
   MembersIcon,
   PersonIcon,
-  ThreeDotIcon,
+  // ThreeDotIcon,
 } from "@/components/icons/PlatformIcon";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import BasicPopover from "../../popover";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type Props = {
@@ -13,6 +15,8 @@ type Props = {
 };
 
 export const AppDetails = ({ item }: Props) => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-deepgray py-4 px-7 rounded-[11px]">
       <div className="flex items-center gap-5">
@@ -34,11 +38,13 @@ export const AppDetails = ({ item }: Props) => {
           </div>
         </div>
         <div className="flex items-center gap-5">
-          <Button variant="outline" className=" ">
+          <Button variant="outline" className=" " onClick={() => navigate("/app/edit")}>
             View
           </Button>
-          <Button>Edit</Button>
-          <ThreeDotIcon />
+          <Button className="bg-[#000000]" onClick={() => navigate("/app/edit/overview")}>Edit</Button>
+          {/* <ThreeDotIcon /> */}
+          {/* <i className="fa-solid fa-ellipsis" style={{rotate:"90deg", fontSize:"25px"}}></i> */}
+          <BasicPopover />
         </div>
       </div>
       <div className="mt-4 flex items-center gap-12">

@@ -29,7 +29,7 @@ export function Sidebar() {
                         <div className="list" onClick={() => navigate("/settings")}>
                             <img src="../public/settings-icon.png" alt="" />
                             <p>Settings</p></div>
-                        <div className="list" onClick={() => navigate("/app/edit/overview")}>
+                        <div className="list" onClick={() => navigate("/app/overview")}>
                             <img src="../public/create-icon.png" alt="" />
                             <p>Create New App</p>
                         </div>
@@ -54,7 +54,7 @@ export function Sidebar() {
                     <div className="list" onClick={() => navigate("/settings")}>
                         <img src="../public/settings-icon.png" alt="" />
                         <p>Settings</p></div>
-                    <div className="list" onClick={() => navigate("/app/edit/overview")}>
+                    <div className="list" onClick={() => navigate("/app/overview")}>
                         <img src="../public/create-icon.png" alt="" />
                         <p>Create New App</p>
                     </div>

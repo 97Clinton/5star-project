@@ -5,7 +5,7 @@ import { Text } from "@/components/global/text";
 import { AiOutlineDoubleRight } from "react-icons/ai";
 
 export const SideNav = ({ style }: { style?: string }) => {
-  const action = "create";
+  // const action = "create";
   const location = useLocation();
   const { pathname } = location;
 
@@ -40,7 +40,7 @@ export const SideNav = ({ style }: { style?: string }) => {
     },
     {
       name: "Create New app",
-      route: `/${action}`,
+      route: `/overview`,
       icon: (
         "create-icon.png"
       ),

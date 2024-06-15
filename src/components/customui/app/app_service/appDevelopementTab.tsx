@@ -16,7 +16,7 @@ export const AppDevelopementTab =()=>{
                             <li>Use Our Online Builders to add Icons and colors that match your branding</li>
                             <li>Add native menus, support for WebRTC, deep Linking, and much more to build a fully functioning app</li>
                         </ul>
-                        <Button className="flex items-center gap-2 bg-[grey] text-xs text-black my-4">
+                        <Button className="flex items-center gap-2 bg-[#CCCCCC] text-xs text-black my-4">
                             Support portal
                             <AiOutlineLink size="1.3rem"/>
                         </Button>

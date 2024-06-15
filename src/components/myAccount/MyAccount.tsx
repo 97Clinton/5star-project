@@ -5,6 +5,7 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Backdrop from '@mui/material/Backdrop';
+import { useNavigate } from "react-router-dom";
 
 export function MyAccount() {
 
@@ -28,6 +29,8 @@ export function MyAccount() {
     const handleBackdropOpen = () => {
       setBackdrop(true);
     };
+
+    const navigate = useNavigate();
 
     return (
         <div className="myAccount">
@@ -67,8 +70,8 @@ export function MyAccount() {
                               }}
                               style={{border:'1px solid black'}}
                             >
-                              <Typography sx={{ p: 0.5 }} style={{border:'1px solid black', borderBottom:'none', borderTopLeftRadius:'4px',borderTopRightRadius:'4px'}}><button style={{fontSize:'12px', paddingLeft:'10px'}}>Settings</button> </Typography>
-                              <Typography sx={{ p: 0.5 }} style={{border:'1px solid black', borderTop:'none', borderBottomLeftRadius:'4px',borderBottomRightRadius:'4px'}}><button style={{fontSize:'12px', paddingLeft:'10px'}}>Leave organizations</button></Typography>
+                              <Typography sx={{ p: 0.5 }} style={{border:'1px solid black', borderBottom:'none', borderTopLeftRadius:'4px',borderTopRightRadius:'4px'}}><button style={{fontSize:'12px', paddingLeft:'10px'}} onClick={() => navigate("/app/settings")}>Settings</button> </Typography>
+                              <Typography sx={{ p: 0.5 }} style={{border:'1px solid black', borderTop:'none', borderBottomLeftRadius:'4px',borderBottomRightRadius:'4px'}}><button style={{fontSize:'12px', paddingLeft:'10px'}} >Leave organizations</button></Typography>
                             </Popover>
                             <i className="fa-solid fa-ellipsis"></i>
                         </div>
@@ -90,7 +93,7 @@ export function MyAccount() {
                               }}
                               style={{border:'1px solid black'}}
                             >
-                              <Typography sx={{ p: 0.5 }}style={{border:'1px solid black', borderBottom:'none', borderTopLeftRadius:'4px',borderTopRightRadius:'4px'}}><button style={{fontSize:'12px', paddingLeft:'10px'}}>Settings</button> </Typography>
+                              <Typography sx={{ p: 0.5 }}style={{border:'1px solid black', borderBottom:'none', borderTopLeftRadius:'4px',borderTopRightRadius:'4px'}}><button style={{fontSize:'12px', paddingLeft:'10px'}} onClick={() => navigate("/app/settings")}>Settings</button> </Typography>
                               <Typography sx={{ p: 0.5 }}style={{border:'1px solid black', borderTop:'none', borderBottomLeftRadius:'4px',borderBottomRightRadius:'4px'}}><button style={{fontSize:'12px', paddingLeft:'10px'}}>Leave organizations</button></Typography>
                             </Popover>
                             <i className="fa-solid fa-ellipsis"></i>
