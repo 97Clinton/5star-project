@@ -16,7 +16,7 @@ export function Navbar() {
     return (
         <div className="navbar">
             <div className="logo">
-                <img src="../public/logo.png" alt="" className="logo"/>
+                <img src="/logo.png" alt="" className="logo"/>
             </div>
             {/* <div className="user">
                 <img src="../public/avatar.png" alt="" className="avatar"/>

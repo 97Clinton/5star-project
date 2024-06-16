@@ -12,25 +12,25 @@ export function Sidebar() {
                     <div className="offcanvas-header">
                         <div className="header">
                             <h2 className="offcanvas-title" id="offcanvasWithBackdropLabel">Odejinmi Samuel`s <br /> Team</h2>
-                            <img src="../public/right-arrow.png" alt="" />
+                            <img src="/right-arrow.png" alt="" />
                         </div>
                         
                       <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div className="offcanvas-body">
                         <div className="list" onClick={() => navigate("/")}>
-                            <img src="../public/phone-icon.png" alt="" />
+                            <img src="/phone-icon.png" alt="" />
                             <p>Apps</p>
                         </div>
                         <div className="list" onClick={() => navigate("/app/members")}>
-                            <img src="../public/users-icon.png" alt="" />
+                            <img src="/users-icon.png" alt="" />
                             <p>Members</p>
                         </div>
                         <div className="list" onClick={() => navigate("/settings")}>
-                            <img src="../public/settings-icon.png" alt="" />
+                            <img src="/settings-icon.png" alt="" />
                             <p>Settings</p></div>
                         <div className="list" onClick={() => navigate("/app/overview")}>
-                            <img src="../public/create-icon.png" alt="" />
+                            <img src="/create-icon.png" alt="" />
                             <p>Create New App</p>
                         </div>
                     </div>
@@ -40,22 +40,22 @@ export function Sidebar() {
                 
                 <div className="header">
                     <h2>Odejinmi Samuel`s <br /> Team</h2>
-                    <img src="../public/right-arrow.png" alt="" />
+                    <img src="/right-arrow.png" alt="" />
                 </div>
                 <div className="lists">
                     <div className="list" onClick={() => navigate("/")}>
-                        <img src="../public/phone-icon.png" alt="" />
+                        <img src="/phone-icon.png" alt="" />
                         <p>Apps</p>
                     </div>
                     <div className="list" onClick={() => navigate("/members")}>
-                        <img src="../public/users-icon.png" alt="" />
+                        <img src="/users-icon.png" alt="" />
                         <p>Members</p>
                     </div>
                     <div className="list" onClick={() => navigate("/settings")}>
-                        <img src="../public/settings-icon.png" alt="" />
+                        <img src="/settings-icon.png" alt="" />
                         <p>Settings</p></div>
                     <div className="list" onClick={() => navigate("/app/overview")}>
-                        <img src="../public/create-icon.png" alt="" />
+                        <img src="/create-icon.png" alt="" />
                         <p>Create New App</p>
                     </div>
                 </div>

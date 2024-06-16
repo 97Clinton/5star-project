@@ -22,7 +22,7 @@ export function NativeNavigation() {
                 <div className="mainContainer">
                     <div className="header">
                         <div className="left">
-                            <img src="../../public/access-logo.png" alt="" />
+                            <img src="/access-logo.png" alt="" />
                             <h2>WebhostingApp</h2>
                         </div>
                         <div className="right">

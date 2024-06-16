@@ -241,7 +241,7 @@ export function SidebarNavigation() {
                     <div className="mini">
                         <div className="miniContent">
                             <div className="flexTop">
-                                <img src="../../../../Vector.png" alt="" />
+                                <img src="/Vector.png" alt="" />
                                 <div className="input-group ">
                                     <select className="form-select" disabled id="inputGroupSelect01">
                                         <option disabled></option>
@@ -259,7 +259,7 @@ export function SidebarNavigation() {
                     <div className="mini">
                         <div className="miniContent">
                             <div className="flexTop">
-                                <img src="../../../../Vector.png" alt="" />
+                                <img src="/Vector.png" alt="" />
                                 <div className="input-group ">
                                     <select className="form-select" disabled id="inputGroupSelect01">
                                         <option disabled></option>
@@ -277,7 +277,7 @@ export function SidebarNavigation() {
                     <div className="mini">
                         <div className="miniContent">
                             <div className="flexTop">
-                                <img src="../../../../Vector.png" alt="" />
+                                <img src="/Vector.png" alt="" />
                                 <div className="input-group ">
                                     <select className="form-select" disabled id="inputGroupSelect01">
                                         <option disabled></option>
@@ -295,7 +295,7 @@ export function SidebarNavigation() {
                     <div className="mini">
                         <div className="miniContent">
                             <div className="flexTop">
-                                <img src="../../../../Vector.png" alt="" />
+                                <img src="/Vector.png" alt="" />
                                 <div className="input-group ">
                                     <select className="form-select" disabled id="inputGroupSelect01">
                                         <option disabled></option>
@@ -313,7 +313,7 @@ export function SidebarNavigation() {
                     <div className="mini">
                         <div className="miniContent">
                             <div className="flexTop">
-                                <img src="../../../../Vector.png" alt="" />
+                                <img src="/Vector.png" alt="" />
                                 <div className="input-group ">
                                     <select className="form-select" disabled id="inputGroupSelect01">
                                         <option disabled></option>
@@ -331,7 +331,7 @@ export function SidebarNavigation() {
                     <div className="mini">
                         <div className="miniContent">
                             <div className="flexTop">
-                                <img src="../../../../Vector.png" alt="" />
+                                <img src="/Vector.png" alt="" />
                                 <div className="input-group ">
                                     <select className="form-select" disabled id="inputGroupSelect01">
                                         <option disabled></option>
@@ -349,7 +349,7 @@ export function SidebarNavigation() {
                     <div className="mini">
                         <div className="miniContent">
                             <div className="flexTop">
-                                <img src="../../../../Vector.png" alt="" />
+                                <img src="/Vector.png" alt="" />
                                 <div className="input-group ">
                                     <select className="form-select" disabled id="inputGroupSelect01">
                                         <option disabled></option>

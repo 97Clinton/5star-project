@@ -92,7 +92,7 @@ export function Member() {
                                 <p>App access</p>
                                 <div className="access">
                                     <div className="leftAccess">
-                                        <img src="../public/access-logo.png" alt="" />
+                                        <img src="/access-logo.png" alt="" />
                                         <p>Giftbills</p>
                                     </div>
                                     <div className="rightAccess">

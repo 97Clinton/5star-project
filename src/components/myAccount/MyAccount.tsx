@@ -49,7 +49,7 @@ export function MyAccount() {
                 </div>
                 <div className="psw">
                     <p>Password</p>
-                    <button onClick={handleBackdropOpen}><h6><img src="../public/psw-icon.png" alt="" /> Change Password</h6></button>
+                    <button onClick={handleBackdropOpen}><h6><img src="/psw-icon.png" alt="" /> Change Password</h6></button>
                 </div>
                 <div className="orgs">
                     <p>My Organizations</p>

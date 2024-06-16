@@ -21,7 +21,7 @@ export const AppSideNav =({style}:{style?:string})=>{
     const Routes =[
         {
             name:"Overview",
-            route:`/${action}/overview`,
+            route:`/edit/overview`,
             icon:"home_icon.png"
         },{
             name:"Branding",
