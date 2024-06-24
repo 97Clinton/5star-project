@@ -44,6 +44,7 @@ export const TopNav =()=>{
                             src="/5starlogo.svg"
                             alt="object not found"
                             className="w-full"
+                            onClick={() => navigate("/")}
                         />
                     </div>
                     
@@ -65,11 +66,11 @@ export const TopNav =()=>{
                                     </div>
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent>
-                                    <ul className="w-[4rem]">
+                                    <ul className="w-[5rem]">
                                         <li>
                                             <NavigationMenuLink asChild>
                                             <a
-                                                className="text-sm flex w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-4 no-underline outline-none focus:shadow-md"
+                                                className="text-large flex w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-2 no-underline outline-none focus:shadow-md"
                                                 href="#"
                                                 onClick={()=>navigate("/auth/signin")}
                                             >

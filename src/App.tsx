@@ -29,12 +29,12 @@ function App() {
       <Routes>
         <Route path="/" element={<DashboardHome />} />
         <Route path="members">
-          <Route path="/members" element={<Member />} />
+          {/* <Route path="/members" element={<Member />} /> */}
           <Route path="/members/myaccount" element={<MyAccount />} /> 
         </Route>
-        <Route path="settings">
+        {/* <Route path="settings">
           <Route path="/settings" element={<Settings />} />
-        </Route>
+        </Route> */}
         
         <Route path="app">
           <Route path="/app/settings" element={<Settings />} />

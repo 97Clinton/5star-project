@@ -26,7 +26,7 @@ export function Sidebar() {
                             <img src="/users-icon.png" alt="" />
                             <p>Members</p>
                         </div>
-                        <div className="list" onClick={() => navigate("/settings")}>
+                        <div className="list" onClick={() => navigate("/app/settings")}>
                             <img src="/settings-icon.png" alt="" />
                             <p>Settings</p></div>
                         <div className="list" onClick={() => navigate("/app/overview")}>
@@ -47,11 +47,11 @@ export function Sidebar() {
                         <img src="/phone-icon.png" alt="" />
                         <p>Apps</p>
                     </div>
-                    <div className="list" onClick={() => navigate("/members")}>
+                    <div className="list" onClick={() => navigate("/app/members")}>
                         <img src="/users-icon.png" alt="" />
                         <p>Members</p>
                     </div>
-                    <div className="list" onClick={() => navigate("/settings")}>
+                    <div className="list" onClick={() => navigate("/app/settings")}>
                         <img src="/settings-icon.png" alt="" />
                         <p>Settings</p></div>
                     <div className="list" onClick={() => navigate("/app/overview")}>

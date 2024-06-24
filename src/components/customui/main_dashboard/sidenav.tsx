@@ -69,7 +69,7 @@ export const SideNav = ({ style }: { style?: string }) => {
           </div>
         </div>
         <ul
-          className="relative m-0 list-none px-[0.2rem]"
+          className="relative my-4 list-none px-[0.2rem]"
           data-te-sidenav-menu-ref
         >
           {Routes.map((link, index) => {

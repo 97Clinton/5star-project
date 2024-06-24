@@ -16,12 +16,9 @@ export function Navbar() {
     return (
         <div className="navbar">
             <div className="logo">
-                <img src="/logo.png" alt="" className="logo"/>
+                <img src="/logo.png" alt="" className="logo" onClick={() => navigate("/")}/>
             </div>
-            {/* <div className="user">
-                <img src="../public/avatar.png" alt="" className="avatar"/>
-                <img src="../public/chevron-down.png" alt="" className="arrow" />
-            </div> */}
+            
             <div className="flex gap-[0.5rem] items-center bg-[grey] p-3 rounded-md"> 
                     <span>
                     
@@ -39,11 +36,11 @@ export function Navbar() {
                                     </div>
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent>
-                                    <ul className="w-[4rem]">
+                                    <ul className="w-[5rem]">
                                         <li>
                                             <NavigationMenuLink asChild>
                                             <a
-                                                className="text-sm flex w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-4 no-underline outline-none focus:shadow-md"
+                                                className="text-large flex w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-2 no-underline outline-none focus:shadow-md"
                                                 href="#"
                                                 onClick={()=>navigate("/auth/signin")}
                                             >
