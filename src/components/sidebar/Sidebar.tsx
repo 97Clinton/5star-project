@@ -18,7 +18,7 @@ export function Sidebar() {
                       <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div className="offcanvas-body">
-                        <div className="list" onClick={() => navigate("/")}>
+                        <div className="list" onClick={() => navigate("/app")}>
                             <img src="/phone-icon.png" alt="" />
                             <p>Apps</p>
                         </div>
@@ -43,7 +43,7 @@ export function Sidebar() {
                     <img src="/right-arrow.png" alt="" />
                 </div>
                 <div className="lists">
-                    <div className="list" onClick={() => navigate("/")}>
+                    <div className="list" onClick={() => navigate("/app")}>
                         <img src="/phone-icon.png" alt="" />
                         <p>Apps</p>
                     </div>

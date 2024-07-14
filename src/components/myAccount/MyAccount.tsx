@@ -6,6 +6,24 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Backdrop from '@mui/material/Backdrop';
 import { useNavigate } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+
+
+const backdropVariant = {
+  hidden: {
+    opacity: 0,
+    y: "-100vh"
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+        delay: 1.5,
+        type: "spring",
+        stiffness: 400
+    }
+}
+}
 
 export function MyAccount() {
 
@@ -108,11 +126,16 @@ export function MyAccount() {
             </div>
 
             <div className="backdrop">
+              {/* <AnimatePresence mode="wait"> */}
                 <Backdrop
                     sx={{ color: '#fff', backgroundColor: "#00000033", backdropFilter: 'blur(2px)', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                     open={backdrop}
                 >
-                    <div className="content">
+                    <motion.div className="content"
+                      variants={backdropVariant}
+                      initial="hidden"
+                      animate="visible"
+                    >
                       <div className="topHeader">
                         <h2>Change Password</h2>
                         <i className="fa-solid fa-xmark" onClick={handleBackdropClose}></i>
@@ -138,8 +161,9 @@ export function MyAccount() {
                           <button>Change Password</button>
                         </div>
                       </form>
-                    </div>
+                    </motion.div>
                 </Backdrop>
+              {/* </AnimatePresence> */}
             </div>
         </div>
     );

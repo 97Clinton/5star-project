@@ -16,21 +16,21 @@ export const IconInput = ({
   field?: any;
 }) => {
   return (
-    <div className="relative">
-      <span className="absolute top-[0.7rem] left-[0.5rem]">{icon}</span>
+    <div className=" relative" >
+      <span className="absolute top-[0.7rem] right-[1rem] left-[0.5rem]">{icon}</span>
       <span>
         {category === "formInput" ? (
           <Input
             placeholder={placeHolder}
             {...field}
             type={type}
-            className={`${style ? style : ""} ps-[2.2rem] py-[0.6rem]`}
+            className="px-[2.2rem] py-[0.6rem]"
           />
         ) : (
           <Input
             placeholder={placeHolder}
             type={type}
-            className={`${style ? style : ""} ps-[2rem] py-[0.6rem]`}
+            className="px-[2rem] py-[0.6rem]"
           />
         )}
       </span>

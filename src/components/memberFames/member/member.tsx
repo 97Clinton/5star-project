@@ -4,6 +4,23 @@ import { Sidebar } from "@/components/sidebar/Sidebar";
 import * as React from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const backdropVariant = {
+    hidden: {
+      opacity: 0,
+      y: "-100vh"
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 1.5,
+        type: "spring",
+        stiffness: 450
+      }
+    }
+  }
 
 export function Member() {
     const [open, setOpen] = React.useState(false);    
@@ -60,7 +77,11 @@ export function Member() {
                     sx={{ color: '#fff', backgroundColor: "#00000033", backdropFilter: 'blur(2px)', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                     open={open}
                 >
-                    <div className="content">
+                    <motion.div className="content"
+                        variants={backdropVariant}
+                        initial="hidden"
+                        animate="visible"
+                    >
                         <div className="topHeader">
                             <h2>Invite a New member to Emmy`s Team</h2>
                             <i className="fa-solid fa-xmark" onClick={handleClose}></i>
@@ -107,7 +128,7 @@ export function Member() {
                                 <button>Send invite</button>
                             </div>
                         </form>
-                    </div>
+                    </motion.div>
                 </Backdrop>
             </div>
 

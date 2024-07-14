@@ -19,7 +19,7 @@ export const SideNav = ({ style }: { style?: string }) => {
   const Routes = [
     {
       name: "App",
-      route: "/",
+      route: "",
       icon: (
         "phone-icon.png"
       ),
