@@ -126,7 +126,6 @@ export function MyAccount() {
             </div>
 
             <div className="backdrop">
-              {/* <AnimatePresence mode="wait"> */}
                 <Backdrop
                     sx={{ color: '#fff', backgroundColor: "#00000033", backdropFilter: 'blur(2px)', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                     open={backdrop}
@@ -163,7 +162,6 @@ export function MyAccount() {
                       </form>
                     </motion.div>
                 </Backdrop>
-              {/* </AnimatePresence> */}
             </div>
         </div>
     );

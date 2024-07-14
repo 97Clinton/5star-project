@@ -4,7 +4,7 @@ export const IconInput = ({
   icon,
   placeHolder,
   type,
-  style,
+  // style,
   category,
   field,
 }: {
