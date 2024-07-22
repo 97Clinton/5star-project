@@ -1,6 +1,6 @@
 type text={
     style:string,
-    value:string|number,
+    value:string|number | React.ReactNode,
     clickFunc?:()=>void
 }
 export const Text =({

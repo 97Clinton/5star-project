@@ -75,7 +75,7 @@ function App() {
         <Route path="auth">
           <Route path="/auth/signin" element={<SigninPage />} />
           <Route path="/auth/signup" element={<SignupPage />} />
-          <Route path="/auth/reset_password" element={<ResetPage />} />
+          <Route path="/auth/password_reset" element={<ResetPage />} />
         </Route>
         
       </Routes>

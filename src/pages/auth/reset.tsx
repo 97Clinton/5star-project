@@ -4,7 +4,7 @@ export const ResetPage =()=>{
     return(
         <AuthLayout
             route="/auth/signup"
-            routeText="Login"
+            routeText={<h6>Not a Member yet? <span className="underline font-semibold">JOIN NOW</span></h6>}
         >
             <ResetPasswordForm/>
         </AuthLayout>

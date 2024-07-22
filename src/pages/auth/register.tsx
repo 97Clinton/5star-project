@@ -4,7 +4,7 @@ export const SignupPage =()=>{
     return(
         <AuthLayout
             route="/auth/signin"
-            routeText="Already have an account? Register here"
+            routeText={<h6>Already a Member? <span className="underline font-semibold">LOG IN NOW</span></h6>}
         >
             <SignupForm/>
         </AuthLayout>

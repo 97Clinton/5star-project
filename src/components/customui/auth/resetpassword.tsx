@@ -83,7 +83,7 @@ export function ResetPasswordForm() {
                             <ReloadIcon className="mr-2 h-4 w-4 animate-spin text-white" />
                             Please wait...
                         </Button>:
-                        <Button type="submit" className="w-full text-white bg-[#24243E] p-[0.5rem]" >Login</Button>
+                        <Button type="submit" className="w-full text-white bg-[#24243E] p-[0.5rem]" style={{display: "flex", justifyContent: "space-between", padding: "0px 30px"}} >Proceed to my Account <i className="fa-solid fa-arrow-right"></i></Button>
                     }
                 </div>
             </form>
