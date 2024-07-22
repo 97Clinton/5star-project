@@ -17,7 +17,13 @@ import { IconInput } from "../../global/iconinput"
 import { Text } from "../../global/text"
 import { SigninformSchema } from "../../../lib/schema"
 import { useNavigate } from "react-router-dom";
+
+
 export function SigninForm() {
+
+    const [mail, setEmail] = useState("");
+    const [psw, setPsw] = useState("");
+
     const[isLoading, setIsLoading]= useState<boolean>(false);
     const navigate = useNavigate();
     const form = useForm<z.infer<typeof SigninformSchema>>({
@@ -34,6 +40,7 @@ export function SigninForm() {
         //     email,
         //     password
         // }=values;
+
         setIsLoading(true)
         
     }
@@ -64,11 +71,19 @@ export function SigninForm() {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                                 </svg>
                             }
+                            
                             type="email"
                             category="formInput"
                             placeHolder="email" 
-                            {...field} 
+                            field = {field}
                         />
+                       
+                        {/* <Input 
+                            onChangeCapture={(e) => setEmail(e.currentTarget.value)}
+                            placeholder= "email"
+                            type="email" 
+                            {...field} 
+                        /> */}
                     </FormControl>
                     <FormMessage />
                     </FormItem>
@@ -91,7 +106,7 @@ export function SigninForm() {
                             type="password"
                             category="formInput"
                             placeHolder="password" 
-                            {...field} 
+                            field = {field} 
                         />
                     </FormControl>
                     <FormMessage />
