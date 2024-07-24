@@ -21,11 +21,11 @@ export function CollapsibleComponent({
   const [isOpen, setIsOpen] = React.useState(true);
 
   return (
-    <div className="h-fit-content overflow-auto">
+    <div className="h-fit-content overflow-auto relative">
       <Collapsible
         open={isOpen}
         onOpenChange={setIsOpen}
-        className="w-full space-y-2 h-fit-content overflow-auto"
+        className="w-full space-y-2 h-fit-content overflow-auto relative"
       >
         <div className="flex items-center justify-between space-x-4 px-4">
           <div className="text-md font-semibold w-full">{title}</div>

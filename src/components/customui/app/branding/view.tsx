@@ -24,7 +24,7 @@ export const BrandingSection =()=>{
                     title="App Icon"
                     subTitle="Your app icon is your app’s identity and is used on the device home screen and in other locations such as settings. Upload a PNG or JPG square image to use as your app's launch icon. Recommended resolution is 1024x1024 pixels."
                 >
-                    <div className="gap-4 flex lg:flex-row xl:flex-row md:flex-row sm:flex-col justfy-between">
+                    <div className="gap-4 grid md:grid-cols-2 grd-cols-1">
                         <AppIconCard
                             os="IOS"
                             img="/laundry img.svg"

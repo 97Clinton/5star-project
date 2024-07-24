@@ -4,7 +4,7 @@ import { RouteBtn } from "../../global/routeBtn";
 import { Text } from "@/components/global/text";
 import { AiOutlineDoubleRight } from "react-icons/ai";
 
-export const SideNav = ({ style }: { style?: string }) => {
+export const SideNav = ({ style}: { style?: string }) => {
   // const action = "create";
   const location = useLocation();
   const { pathname } = location;
@@ -53,8 +53,8 @@ export const SideNav = ({ style }: { style?: string }) => {
       className={`${
         style
           ? style
-          : "bg-white fixed left-0 top-0 z-[1035] h-screen w-60 -translate-x-full overflow-hidden shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0 dark:bg-zinc-800"
-      } p-4`}
+          : "sidenav bg-white fixed left-0 top-0 md:top-0 z-[500] h-screen -translate-x-full overflow-auto shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0 dark:bg-zinc-800"} p-4 border"
+      } p-4 `}
       data-te-sidenav-init
       data-te-sidenav-content="#content"
     >

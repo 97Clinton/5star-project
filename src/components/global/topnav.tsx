@@ -30,12 +30,12 @@ export const TopNav =()=>{
                                     color="white"
                                 />
                             </span>
-                            <div className="mobileNav">
+                            {/* <div className="mobileNav">
                                 <AppSideNav/>
                             </div>
                             <div className="tabletNav">
                                 <AppSideNav/>
-                            </div>
+                            </div> */}
                             
                         </div>
                     </div>

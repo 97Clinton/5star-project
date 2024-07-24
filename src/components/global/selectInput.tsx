@@ -19,6 +19,7 @@ export function SelectInput({
     placeholder:string
 }) {
   return (
+    <div className="relative">
     <Select>
       <SelectTrigger className={style}>
         <SelectValue placeholder={placeholder}/>
@@ -30,5 +31,6 @@ export function SelectInput({
         </SelectGroup>
       </SelectContent>
     </Select>
+    </div>
   )
 }

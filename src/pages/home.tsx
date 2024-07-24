@@ -1,5 +1,5 @@
 import { AppDetails } from "@/components/customui/app/dashboard/AppDetails";
-import { DashBoardLayout } from "@/components/customui/main_dashboard/layout";
+import { DashBoardLayout } from "@/components/customui/main_dashboard/dashboard-layout";
 import { SearchBar } from "@/components/global/searchInput";
 import { SelectInput } from "@/components/global/selectInput";
 import { SelectItem } from "@/components/ui/select";

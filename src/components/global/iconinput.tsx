@@ -1,16 +1,17 @@
 import React from "react";
 import { Input } from "../ui/input";
 
-
 export const IconInput = ({
   icon,
   placeHolder,
+  defaultValue,
   type,
-  // style,
+  style,
   category,
   field,
 }: {
   icon: React.ReactNode;
+  defaultValue?:string;
   placeHolder: string;
   type: string;
   style?: string;
@@ -18,21 +19,23 @@ export const IconInput = ({
   field?: any;
 }) => {
   return (
-    <div className=" relative" >
-      <span className="absolute top-[0.7rem] right-[1rem] left-[0.5rem]">{icon}</span>
+    <div className="relative">
+      <span className="absolute top-[0.8rem] left-[0.5rem]">{icon}</span>
       <span>
         {category === "formInput" ? (
           <Input
             placeholder={placeHolder}
             {...field}
             type={type}
-            className="px-[2.2rem] py-[0.6rem]"
+            className={`${style ? style : ''} iconInput`}
+            defaultValue={defaultValue}
           />
         ) : (
           <Input
             placeholder={placeHolder}
             type={type}
-            className="px-[2rem] py-[0.6rem]"
+            className={`${style ? style : ''}  iconInput`}
+            defaultValue={defaultValue}
           />
         )}
       </span>

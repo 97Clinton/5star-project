@@ -17,7 +17,7 @@ import { SelectItem } from "../ui/select";
 
 export const SimulationView = () => {
   return (
-    <div className="bg-white flex flex-col gap-4 w-[20.3rem] p-4">
+    <div className="bg-white flex flex-col gap-4 w-full p-4">
       <div className="flex justify-between items-center">
         <div className="flex gap-2 items-center">
           <Text style="text-sm text-start text-[grey]" value="Simulator" />
