@@ -60,6 +60,7 @@
                 justify-content: center;
                 width: 100%;
                 margin-top: 20px;
+                // overflow-y: hidden;
 
                 .topp {
                     display: flex;
@@ -174,6 +175,7 @@
                 padding: 30px 50px;
                 border-top-left-radius: 10px;
                 border-top-right-radius: 10px;
+                z-index: 1;
 
                 @include miniDesktop {
                     width: 100%;

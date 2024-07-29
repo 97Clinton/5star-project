@@ -36,7 +36,7 @@ export function ResetPasswordForm() {
     }
 
   return (
-    <div className="flex flex-col my-4">
+    <div className="flex flex-col my-5">
         <Text
             style="text-xl font-semibold mb-4 text-center"
             value="FORGET PASSWORD"
@@ -52,7 +52,7 @@ export function ResetPasswordForm() {
                 name="email"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    {/* <FormLabel>Email</FormLabel> */}
                     <FormControl>
                         <IconInput
                             style="p-2"
@@ -63,7 +63,7 @@ export function ResetPasswordForm() {
                             }
                             type="email"
                             category="formInput"
-                            placeHolder="email" 
+                            placeHolder="example@gmail.com" 
                             {...field} 
                         />
                     </FormControl>
@@ -88,6 +88,10 @@ export function ResetPasswordForm() {
                 </div>
             </form>
         </Form>
+
+        <div className="bottom absolute bottom-0 mb-3" style={{fontSize: "12px", marginLeft:"20%"}}>
+            <a href=""><h6>Having issues with your Password?</h6></a>
+        </div>
     </div>
   )
 }

@@ -2,26 +2,49 @@ import { AppSideNav } from "../customui/app/sidenav";
 import { SimulationView } from "../global/simulationview";
 import { TopNav } from "../global/topnav";
 import "./supportPage.scss";
+import { motion } from "framer-motion";
+
+
+const layoutVariant = {
+    hidden: {
+      opacity: 0,
+      y: "100vw",
+      scale: 0
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        delay: 0.2,
+        duration: 0.7
+      }
+    }
+  }
 
 export function SupportPage() {
     return (
         <div className="support">
             <TopNav />
             
-            <div className="container">
-                <div className="flexOne">
+            <div className="bigContainer">
+                <div className="mainContainer">
                     <div className="header">
                         <div className="left">
-                            <img src="../../public/access-logo.png" alt="" />
+                            <img src="/access-logo.png" alt="" />
                             <h2>WebhostingApp</h2>
                         </div>
                         <div className="right">
                             <p>Last saved 12days ago</p>
                             <button>Done Editing</button>
-                            <i className="fa-solid fa-ellipsis"></i>
+                            <i className="fa-solid fa-ellipsis-vertical"></i>                        
                         </div>
                     </div>
-                    <div className="centerPositioning">
+                    <motion.div className="leftContainer"
+                        variants={layoutVariant}
+                        initial="hidden"
+                        animate="visible"
+                    >
                         <div className="sidenav">
                             <AppSideNav style="relative desktopNav w-60 overflow-hidden dark:bg-zinc-800 bg-white me-2"/>
                         </div>
@@ -34,7 +57,7 @@ export function SupportPage() {
                                     <h2>Self-Support for free</h2>
                                     <i className="fa-solid fa-angle-up"></i>
                                 </div>
-                                
+
                                 <ul>
                                     <li>Six months of online app rebuilds for changes to your app configuration</li>
                                     <li>Apps function indefinitely subject to future compatibility with iOS and Android versions</li>
@@ -73,11 +96,10 @@ export function SupportPage() {
                                     </div>
                                 </div>
                             </div>
+
                         </div>
-                    </div>
-                    
+                    </motion.div>        
                 </div>
-                
                 <div className="simulator">
                     <SimulationView />
                 </div>

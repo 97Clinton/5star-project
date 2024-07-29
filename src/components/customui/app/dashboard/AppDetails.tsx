@@ -38,7 +38,7 @@ export const AppDetails = ({ item }: Props) => {
           </div>
         </div>
         <div className="flex items-center gap-5">
-          <Button variant="outline" className=" " onClick={() => navigate("/app/edit")}>
+          <Button variant="outline" className=" " onClick={() => navigate("/app/editApp")}>
             View
           </Button>
           <Button className="bg-[#000000]" onClick={() => navigate("/app/edit/overview")}>Edit</Button>

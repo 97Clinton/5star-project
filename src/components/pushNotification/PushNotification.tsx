@@ -2,6 +2,24 @@ import { AppSideNav } from "../customui/app/sidenav";
 import { SimulationView } from "../global/simulationview";
 import { TopNav } from "../global/topnav";
 import "./pushNotification.scss";
+import { motion } from "framer-motion";
+
+const layoutVariant = {
+    hidden: {
+      opacity: 0,
+      y: "100vw",
+      scale: 0
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        delay: 0.2,
+        duration: 0.7
+      }
+    }
+  }
 
 export function PushNotification() {
     return (
@@ -17,10 +35,14 @@ export function PushNotification() {
                         <div className="right">
                             <p>Last saved 12days ago</p>
                             <button>Done Editing</button>
-                            <i className="fa-solid fa-ellipsis"></i>
+                            <i className="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
-                    <div className="leftContainer">
+                    <motion.div className="leftContainer"
+                        variants={layoutVariant}
+                        initial="hidden"
+                        animate="visible"
+                    >
                         <div className="sidenav">
                             <AppSideNav style="relative desktopNav w-60 overflow-hidden dark:bg-zinc-800 bg-white me-2"/>
                         </div>
@@ -202,7 +224,7 @@ export function PushNotification() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
                 
                 <div className="simulator">

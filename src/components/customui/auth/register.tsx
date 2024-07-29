@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
-
+import { useNavigate } from "react-router-dom"
 import { Button } from "../../ui/button"
 import {
   Form,
@@ -18,29 +18,50 @@ import { Text } from "../../global/text"
 import { RegisterformSchema } from "../../../lib/schema"
 
 export function SignupForm() {
+
+    const navigate = useNavigate();
+
     const[isLoading, setIsLoading]= useState<boolean>(false);
     const form = useForm<z.infer<typeof RegisterformSchema>>({
         resolver: zodResolver(RegisterformSchema),
         defaultValues: {
+            fullname: "",
             email:"",
             password:"",
-            fullname:""
         },
     })
 
-    function onSubmit(values: z.infer<typeof RegisterformSchema>) {
-        console.log(values)
-        // const {
-        //     email,
-        //     fullname,
-        //     password
-        // }=values;
+    async function onSubmit(values: z.infer<typeof RegisterformSchema>) {
+        // console.log(values)
+        const {
+            fullname,
+            email,
+            password
+        }=values;
+
+        let details = {fullname, email, password};
+        console.log(details);
+
+        let output = await fetch("https://web2app.prisca.5starcompany.com.ng/api/register", {
+            method: "POST",
+            mode: 'no-cors',
+            body: JSON.stringify(details),
+            headers: {
+                "Content-Type": 'application/json',
+                "Accept": 'application/json'
+            }
+        })
+        output = await output.json()
+        // console.log("output", output);
+        localStorage.setItem("user-info", JSON.stringify(output))
+        navigate('/');
+
         setIsLoading(true)
         
     }
 
   return (
-    <div className="flex flex-col my-4">
+    <div className="flex flex-col my-2">
         <Text
             style="text-xl font-semibold mb-4 text-center"
             value="BECOME AN EXCLUSIVE MEMBERS"
@@ -51,6 +72,30 @@ export function SignupForm() {
         />
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">  
+            
+            <FormField
+                control={form.control}
+                name="fullname"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Full Name</FormLabel>
+                    <IconInput
+                            style="p-2"
+                            icon={
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                                </svg>
+                            }
+                            type="text"
+                            category="formInput"
+                            placeHolder="full name" 
+                            // {...field} 
+                            field = {field}
+                        />
+                    <FormMessage />
+                  </FormItem>
+                )}
+            />
             <FormField
                 control={form.control}
                 name="email"
@@ -68,35 +113,13 @@ export function SignupForm() {
                             type="email"
                             category="formInput"
                             placeHolder="email" 
-                            {...field} 
+                            field = {field}
                         />
                     </FormControl>
                     <FormMessage />
                     </FormItem>
                 )}
-                />
-                <FormField
-                control={form.control}
-                name="fullname"
-                render={({ field }) => (
-                    <FormItem>
-                    <FormLabel>Full Name</FormLabel>
-                    <IconInput
-                            style="p-2"
-                            icon={
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                                </svg>
-                            }
-                            type="text"
-                            category="formInput"
-                            placeHolder="full name" 
-                            {...field} 
-                        />
-                    <FormMessage />
-                  </FormItem>
-                )}
-                />
+            />
                 <FormField
                     control={form.control}
                     name="password"
@@ -114,7 +137,7 @@ export function SignupForm() {
                                 type="password"
                                 category="formInput"
                                 placeHolder="password" 
-                                {...field} 
+                                field = {field}
                             />
                         </FormControl>
                         <FormMessage />
@@ -138,6 +161,7 @@ export function SignupForm() {
                 </div>
             </form>
         </Form>
+        
     </div>
   )
 }

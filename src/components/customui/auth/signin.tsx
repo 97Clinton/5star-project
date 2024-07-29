@@ -1,7 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
-
 import { Button } from "../../ui/button"
 import {
   Form,
@@ -21,9 +20,6 @@ import { useNavigate } from "react-router-dom";
 
 export function SigninForm() {
 
-    const [mail, setEmail] = useState("");
-    const [psw, setPsw] = useState("");
-
     const[isLoading, setIsLoading]= useState<boolean>(false);
     const navigate = useNavigate();
     const form = useForm<z.infer<typeof SigninformSchema>>({
@@ -34,19 +30,33 @@ export function SigninForm() {
         },
     })
 
-    function onSubmit(values: z.infer<typeof SigninformSchema>) {
-        console.log(values)
-        // const {
-        //     email,
-        //     password
-        // }=values;
+    async function onSubmit(values: z.infer<typeof SigninformSchema>) {
+        // console.log(values)
+        const {
+            email,
+            password
+        }=values;
+
+        console.log(email, password);
+        let details = {email, password};
+        let output = await fetch("https://web2app.prisca.5starcompany.com.ng", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(details)
+        });
+        output = await output.json();
+        localStorage.setItem("user-info", JSON.stringify(output));
+
 
         setIsLoading(true)
         
     }
 
   return (
-    <div className="flex flex-col my-4">
+    <div className="flex flex-col my-2">
         <Text
             style="text-xl font-semibold mb-4 text-center"
             value="WELCOME BACK EXCLUSIVE MEMBERS"

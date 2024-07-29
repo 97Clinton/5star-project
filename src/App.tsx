@@ -41,7 +41,7 @@ function App() {
           <Route path="/app/settings" element={<Settings />} />
           <Route path="/app/members" element={<Member />} />
           <Route path="/app/overview" element={<CreateAppOverview />} />
-          <Route path="/app/edit" element={<EditApp />} />
+          <Route path="/app/editApp" element={<EditApp />} />
           <Route path="/app/edit/overview" element={<OverviewPage />} />
           <Route path="/app/:action/branding" element={<BrandingPage />} />
           <Route path="/app/:action/interface" element={<InterfacePage />} />
