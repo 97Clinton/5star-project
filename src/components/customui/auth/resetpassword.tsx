@@ -8,7 +8,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "../../ui/form"
 import {useState } from "react";
@@ -52,7 +51,6 @@ export function ResetPasswordForm() {
                 name="email"
                 render={({ field }) => (
                     <FormItem>
-                    {/* <FormLabel>Email</FormLabel> */}
                     <FormControl>
                         <IconInput
                             style="p-2"

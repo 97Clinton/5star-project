@@ -87,12 +87,6 @@ export function SigninForm() {
                             field = {field}
                         />
                        
-                        {/* <Input 
-                            onChangeCapture={(e) => setEmail(e.currentTarget.value)}
-                            placeholder= "email"
-                            type="email" 
-                            {...field} 
-                        /> */}
                     </FormControl>
                     <FormMessage />
                     </FormItem>
