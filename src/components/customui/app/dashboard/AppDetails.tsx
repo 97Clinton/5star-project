@@ -23,8 +23,8 @@ export const AppDetails = ({ item }: Props) => {
         <img src={item?.logo} alt="" className="w-9 h-9 object-cover" />
         <h1 className="text-base font-medium">{item?.title}</h1>
       </div>
-      <div className="mt-3 flex items-center justify-between">
-        <div className="flex items-center gap-7">
+      <div className="mt-3 flex items-center justify-between lg:flex-row md:flex-row sm:flex-col sm:gap-4 ">
+        <div className="flex items-center gap-7 sm:gap-3 lg:flex xl:flex md:flex-row sm:flex-col sm:mr-auto sm:items-start">
           <span className="bg-lightgreen text-lightgreen1 rounded-[23px] px-10 py-0.5 font-medium text-base capitalize">
             {item?.plan}
           </span>
@@ -42,8 +42,6 @@ export const AppDetails = ({ item }: Props) => {
             View
           </Button>
           <Button className="bg-[#000000]" onClick={() => navigate("/app/edit/overview")}>Edit</Button>
-          {/* <ThreeDotIcon /> */}
-          {/* <i className="fa-solid fa-ellipsis" style={{rotate:"90deg", fontSize:"25px"}}></i> */}
           <BasicPopover />
         </div>
       </div>

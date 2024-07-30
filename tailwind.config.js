@@ -20,6 +20,7 @@ module.exports = {
     },
     extend: {
       screens:{
+        'xs': "300px",
         'sm':"320px",
       },
       colors: {

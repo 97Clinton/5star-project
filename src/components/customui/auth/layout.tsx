@@ -41,7 +41,7 @@ export const AuthLayout=({
                         <img src="/handshake.png" alt="" className="h-[100vh] w-[30rem] "/>
                     </div>
                 </div>
-                <div className="p-4 pt-2 w-full flex-grow overflow-x-hidden">
+                <div className="p-4 w-full flex-grow overflow-x-hidden">
                     <div className="flex flex-wrap justify-between gap-2">
                         <div className="flex gap-2 items-center">
                             <AiOutlineDoubleLeft color="grey" size="1.3rem"/>
@@ -67,7 +67,7 @@ export const AuthLayout=({
                     </div>
                     <div className="foote flex justify-between " style={{color:"#9E9E9E", fontSize:"11px"}} >
                         <div className="left">
-                            <p>Copyright 2001-2002 5Starcompany. All rights Reserved</p>
+                            <p className="sm:flex-col">Copyright 2001-2002 5Starcompany. <br />All rights Reserved </p>
                         </div>
                         <div className="right">
                             <p className="flex items-center gap-2 cursor-pointer"><i className="fa-solid fa-info"></i> Need help?</p>

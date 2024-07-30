@@ -44,7 +44,6 @@ export function SignupForm() {
 
         let output = await fetch("https://web2app.prisca.5starcompany.com.ng/api/register", {
             method: "POST",
-            mode: 'no-cors',
             body: JSON.stringify(details),
             headers: {
                 "Content-Type": 'application/json',
@@ -52,7 +51,7 @@ export function SignupForm() {
             }
         })
         output = await output.json()
-        // console.log("output", output);
+        console.log("output", output);
         localStorage.setItem("user-info", JSON.stringify(output))
         navigate('/');
 
