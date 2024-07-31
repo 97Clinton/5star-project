@@ -1,6 +1,5 @@
 import React from 'react';
 import { SideNav } from './sidenav';
-import { TopNav } from '../../global/topnav';
 import { Navbar } from '@/components/navbar/Navbar';
 
 export const DashBoardLayout = ({
@@ -11,7 +10,6 @@ export const DashBoardLayout = ({
   return (
     <div className="h-full">
       <div className="">
-        {/* <TopNav /> */}
         <Navbar />
         
         
