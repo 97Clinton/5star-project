@@ -21,7 +21,7 @@ export const DashBoardLayout = ({
           <div className="h-[100%] lg:block hidden">
             <SideNav style="relative desktopNav overflow-auto dark:bg-zinc-800 bg-white shadow me-2 me-1" />
           </div>
-          <div className="w-full block overflow-scroll">
+          <div className="w-full block ">
             <SideNav />
             <div className="px-4 w-full h-full mt-4 ">
               <div className="pb-14 flex flex-col justify-between md:h-screen h-auto">
