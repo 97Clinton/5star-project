@@ -117,7 +117,7 @@ export function SigninForm() {
                 />
                 <Text
                     style="text-sm text-grey font-light mb-4 text-start"
-                    value="Forget Password? Reset here"
+                    value={<h6> Forget Password? <span className="hover:underline cursor-pointer hover:font-medium">Reset here</span></h6>}
                     clickFunc={()=>navigate("/auth/password_reset")}
                 />
                 <div 
