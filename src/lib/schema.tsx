@@ -3,26 +3,26 @@ import * as z from "zod";
 export const RegisterformSchema = z.object({
     fullname: z.string({
         required_error: "full Name field is required.",
-    }),
+    }).min(5, {message: "Full Name field is required."}),
   email: z.string({
     required_error: "email field is required.",
-  }),
+  }).min(5, {message: "Please enter a valid email address."}),
   password: z.string({
     required_error: "password field is required.",
-  }),
+  }).min(8, {message: "Password must be at least 8 characters"}),
 })
 
 export const SigninformSchema = z.object({
   email: z.string({
     required_error: "email field is required.",
-  }),
+  }).min(5, {message: "Please enter a valid email address."}),
   password: z.string({
     required_error: "password field is required.",
-  }),
+  }).min(8, {message: "Password must be at least 8 characters"}),
 })
 
 export const ResetPasswordformSchema = z.object({
   email: z.string({
     required_error: "email field is required.",
-  })
+  }).min(5, {message: "Please enter a valid email address."})
 })

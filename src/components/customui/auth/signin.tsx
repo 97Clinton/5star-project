@@ -39,20 +39,25 @@ export function SigninForm() {
 
         console.log(email, password);
         let details = {email, password};
-        let output = await fetch("https://web2app.prisca.5starcompany.com.ng", {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(details)
-        });
-        output = await output.json();
-        localStorage.setItem("user-info", JSON.stringify(output));
-
-
-        setIsLoading(true)
-        
+        setIsLoading(true);
+        try {
+            let output = await fetch("https://web2app.prisca.5starcompany.com.ng/api/login", {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(details)
+            });
+            output = await output.json();
+            localStorage.setItem("user-info", JSON.stringify(output));
+            navigate('/');
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setIsLoading(false);
+        }
+                
     }
 
   return (

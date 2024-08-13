@@ -32,7 +32,6 @@ export function SignupForm() {
     })
 
     async function onSubmit(values: z.infer<typeof RegisterformSchema>) {
-        // console.log(values)
         const {
             fullname,
             email,
@@ -41,22 +40,27 @@ export function SignupForm() {
 
         let details = {fullname, email, password};
         console.log(details);
-
-        let output = await fetch("https://web2app.prisca.5starcompany.com.ng/api/register", {
-            method: "POST",
-            body: JSON.stringify(details),
-            headers: {
-                "Content-Type": 'application/json',
-                "Accept": 'application/json'
-            }
-        })
-        output = await output.json()
-        console.log("output", output);
-        localStorage.setItem("user-info", JSON.stringify(output))
-        navigate('/');
-
         setIsLoading(true)
-        
+
+        try {
+            let output = await fetch("https://web2app.prisca.5starcompany.com.ng/api/register", {
+                method: "POST",
+                body: JSON.stringify(details),
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Accept": 'application/json'
+                }
+            })
+            output = await output.json()
+            console.log("output", output);
+            localStorage.setItem("user-info", JSON.stringify(output))
+            navigate('/auth/signin');
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setIsLoading(false);
+        }
+         
     }
 
   return (

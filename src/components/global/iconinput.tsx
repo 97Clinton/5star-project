@@ -29,6 +29,7 @@ export const IconInput = ({
             type={type}
             className={`${style ? style : ''} iconInput`}
             defaultValue={defaultValue}
+            // required
           />
         ) : (
           <Input
@@ -36,6 +37,7 @@ export const IconInput = ({
             type={type}
             className={`${style ? style : ''}  iconInput`}
             defaultValue={defaultValue}
+            // required
           />
         )}
       </span>
