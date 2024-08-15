@@ -16,6 +16,8 @@ import { ReloadIcon } from "@radix-ui/react-icons"
 import { IconInput } from "../../global/iconinput"
 import { Text } from "../../global/text"
 import { RegisterformSchema } from "../../../lib/schema"
+import { Bounce, ToastContainer, toast } from 'react-toastify'; 
+import "react-toastify/dist/ReactToastify.css";
 
 export function SignupForm() {
 
@@ -38,25 +40,47 @@ export function SignupForm() {
             password
         }=values;
 
-        let details = {fullname, email, password};
-        console.log(details);
+        const name = fullname;
+
+        let details = {name, email, password};
+        // console.log(details);
         setIsLoading(true)
 
         try {
-            let output = await fetch("https://web2app.prisca.5starcompany.com.ng/api/register", {
+            let response = await fetch("https://web2app.prisca.5starcompany.com.ng/api/register", {
                 method: "POST",
-                body: JSON.stringify(details),
                 headers: {
+                    "Accept": 'application/json',
                     "Content-Type": 'application/json',
-                    "Accept": 'application/json'
-                }
+                },
+                body: JSON.stringify(details),
+                
             })
-            output = await output.json()
-            console.log("output", output);
-            localStorage.setItem("user-info", JSON.stringify(output))
-            navigate('/auth/signin');
+
+            //log response error
+            if (!response.ok) {
+                throw new Error('Unprocessable content!');
+            } else if (response.ok){
+                response = await response.json()
+                console.log('Response: ', response);
+                localStorage.setItem("user-info", JSON.stringify(response))
+
+                 //navigate to homepage after successful login
+                setTimeout(()=> navigate('/auth/signin'), 2000); //delayed to allow toast display
+
+                toast.success("User Created Successfully!!!", {
+                    position: "bottom-right",
+                    draggable: true
+                })
+            }
+                
+           
         } catch (error) {
-            console.log(error);
+            console.error("error:", error);
+            toast.error("The email has already been taken.", {
+                position: "bottom-right",
+                draggable: true
+            })
         } finally {
             setIsLoading(false);
         }
@@ -161,6 +185,7 @@ export function SignupForm() {
                         </Button>:
                         <Button type="submit" className="w-full text-white bg-[#24243E] p-[0.5rem]" style={{display: "flex", justifyContent: "space-between", padding: "0px 30px"}} >Become a Member <i className="fa-solid fa-arrow-right"></i></Button>
                     }
+                    <ToastContainer transition={Bounce} draggable/>
                 </div>
             </form>
         </Form>

@@ -16,7 +16,8 @@ import { IconInput } from "../../global/iconinput"
 import { Text } from "../../global/text"
 import { SigninformSchema } from "../../../lib/schema"
 import { useNavigate } from "react-router-dom";
-
+import { Bounce, ToastContainer, toast } from 'react-toastify'; 
+import "react-toastify/dist/ReactToastify.css";
 
 export function SigninForm() {
 
@@ -31,30 +32,52 @@ export function SigninForm() {
     })
 
     async function onSubmit(values: z.infer<typeof SigninformSchema>) {
-        // console.log(values)
+        //destructure the details
         const {
             email,
             password
         }=values;
 
-        console.log(email, password);
         let details = {email, password};
         setIsLoading(true);
+
+        //fetch api
         try {
-            let output = await fetch("https://web2app.prisca.5starcompany.com.ng/api/login", {
+            let response = await fetch("https://web2app.prisca.5starcompany.com.ng/api/login", {
                 method: 'POST',
                 headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify(details)
             });
-            output = await output.json();
-            localStorage.setItem("user-info", JSON.stringify(output));
-            navigate('/');
+
+            //log response error
+            if (!response.ok) {
+                throw new Error('Unprocessable content!');
+            }
+
+            response = await response.json();
+            localStorage.setItem("user-info", JSON.stringify(response));
+            console.log('Response: ', response);
+            
+            //navigate to homepage after successful login
+            setTimeout(()=> navigate('/'), 2000); //delayed to allow toast display
+
+            toast.success("User Logged In Successfully!!!", {
+                position: "bottom-right",
+                draggable: true
+            })
+                      
         } catch (error) {
-            console.log(error);
+            //catch and log error
+            console.error("error:", error);
+            toast.error("Invalid Credentials", {
+                position: "bottom-right",
+                draggable: true
+            })
         } finally {
+            //make sure isLoading returns false
             setIsLoading(false);
         }
                 
@@ -137,7 +160,9 @@ export function SigninForm() {
                             Please wait...
                         </Button>:
                         <Button type="submit" className="w-full text-white bg-[#24243E] p-[0.5rem]" style={{display: "flex", justifyContent: "space-between", padding: "0px 30px"}} >Proceed to my Account <i className="fa-solid fa-arrow-right"></i></Button>
+                        
                     }
+                    <ToastContainer transition={Bounce} draggable/>
                 </div>
             </form>
         </Form>
