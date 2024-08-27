@@ -68,7 +68,7 @@ export function ResetPasswordForm() {
             }
         } catch(error) {
             console.error("error:", error);
-            toast.error("We can't find a user with that email address.", {
+            toast.error("No user with that email address.", {
                 position: "bottom-right",
                 draggable: true
             })

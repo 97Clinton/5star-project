@@ -5,7 +5,7 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Backdrop from '@mui/material/Backdrop';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {motion } from "framer-motion";
 
 
@@ -22,8 +22,15 @@ const backdropVariant = {
         type: "spring",
         stiffness: 400
     }
+  }
 }
-}
+
+  // interface MemberDetailProps {
+  //   name: string;
+  //   email: string;
+  // }
+
+  
 
 export function MyAccount() {
 
@@ -50,6 +57,9 @@ export function MyAccount() {
 
     const navigate = useNavigate();
 
+    const location = useLocation();
+    const { name, email } = location.state || {};
+
     return (
         <div className="myAccount">
             <Navbar />
@@ -58,11 +68,11 @@ export function MyAccount() {
                 <div className="details">
                     <div className="name">
                         <p>Name</p>
-                        <h6>Emmy</h6>
+                        <h6>{name}</h6>
                     </div>
                     <div className="email">
                         <p>Email</p>
-                        <h6>emmy@gmail.com</h6>
+                        <h6>{email}</h6>
                     </div>
                 </div>
                 <div className="psw">
@@ -114,7 +124,7 @@ export function MyAccount() {
                               <Typography sx={{ p: 0.5 }}style={{border:'1px solid black', borderBottom:'none', borderTopLeftRadius:'4px',borderTopRightRadius:'4px'}}><button style={{fontSize:'12px', paddingLeft:'10px'}} onClick={() => navigate("/app/settings")}>Settings</button> </Typography>
                               <Typography sx={{ p: 0.5 }}style={{border:'1px solid black', borderTop:'none', borderBottomLeftRadius:'4px',borderBottomRightRadius:'4px'}}><button style={{fontSize:'12px', paddingLeft:'10px'}}>Leave organizations</button></Typography>
                             </Popover>
-                            <i className="fa-solid fa-ellipsis"></i>
+                            <i className="fa-solid fa-ellipsis" style={{cursor: "pointer"}}></i>
                         </div>
                     </div>
                     

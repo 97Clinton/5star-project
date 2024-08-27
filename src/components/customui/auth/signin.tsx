@@ -58,6 +58,8 @@ export function SigninForm() {
             }
 
             response = await response.json();
+                // store user details and basic auth credentials in local storage 
+                // to keep user logged in between page refreshes
             localStorage.setItem("user-info", JSON.stringify(response));
             console.log('Response: ', response);
             

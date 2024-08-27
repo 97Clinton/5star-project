@@ -13,6 +13,18 @@ import { AppSideNav } from "../customui/app/sidenav";
 
 export const TopNav =()=>{
     const navigate = useNavigate()
+
+    function handleLogout() {
+
+        // remove user from local storage to log user out
+        localStorage.removeItem("user-info");
+        localStorage.clear();
+        return (
+            navigate("/auth/signin")
+        )
+    };
+
+
     return(
         <div className="mb-0 flex lg:flex-row xl:flex-row md:flex-col pl-5 pr-5 sm:flex-col justify-between md:flex-col-reverse sm:flex-col-reverse items-center w-[100%] gap-2 bg-black">
             <div className="flex items-center justify-between w-full bg-black p-2 rounded">
@@ -72,7 +84,9 @@ export const TopNav =()=>{
                                             <a
                                                 className="text-large flex w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-2 no-underline outline-none focus:shadow-md"
                                                 href="#"
-                                                onClick={()=>navigate("/auth/signin")}
+                                                // onClick={()=>navigate("/auth/signin")}
+                                                onClick={handleLogout}
+
                                             >
                                                 Log Out
                                             </a>
