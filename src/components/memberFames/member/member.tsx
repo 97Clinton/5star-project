@@ -10,6 +10,7 @@ import { Bounce, ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { Button } from "../../ui/button";
 import { ReloadIcon } from "@radix-ui/react-icons";
+import LinearIndeterminate from "@/components/global/LinearProgress";
 
 
 const backdropVariant = {
@@ -30,6 +31,7 @@ const backdropVariant = {
 
 export function Member() {
     const[isLoading, setIsLoading]= useState<boolean>(false);
+    const[memberLoading, setMemberLoading]= useState<boolean>(false);
     const [open, setOpen] = React.useState(false);    
     const navigate = useNavigate();
     const [error, setError] = useState(null);
@@ -104,14 +106,14 @@ export function Member() {
         }
     }
 
+    // Get the token from localStorage
+    const savedToken: string | null  = localStorage.getItem('authToken');      
 
     useEffect(() => {
-        const username = 'ajetetimothysamuel@gmail.com';
-        const password = 'timothy99';
-
+        setMemberLoading(true);
 
         const headers = new Headers();
-        headers.set('Authorization', 'Basic ' + btoa(`${username}:${password}`));
+        headers.set('Authorization', `Bearer ${savedToken}`);
 
         //Making the fetch request
         fetch('https://web2app.prisca.5starcompany.com.ng/api/member', {
@@ -134,11 +136,15 @@ export function Member() {
 
             setInfo(data.data);
             console.log(data.data);
+            setMemberLoading(false);
+
         })
         .catch(err => {
             setError(err.message)
             console.log(error);
         });
+        
+        
     }, []) //Empty dependency array means this runs on component mount.
 
 
@@ -164,29 +170,32 @@ export function Member() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {info.length > 0 ? (
-                                    info.map((member, index) => (
-                                        <tr key={index} onClick={() => navigate('/members/myaccount', {state: { name: member.name, email: member.email }})}>
-                                            <td className="user-row user-col">
-                                                <img src="../public/avatar.png" alt="" />
-                                                <span>{member.name}</span>
-                                            </td>
-                                            <td className="mail email-col">{member.email}</td>
-                                            <td className="role role-col">{member.role.name}</td>
-                                            <td className="user-row2 access-col"><span>All</span><i className="fa-solid fa-angle-right arrow1"></i></td>
-                                            {/* <td className="user-row2">
-                                                <span>{member.appAccess}</span>
-                                                <i className="fa-solid fa-angle-right arrow1"></i>
-                                            </td>  */}
-                                        </tr>
-                                        
-                                    ))
-                                ) : (
+                                {memberLoading ? 
                                     <tr>
-                                        <td>No members found</td>
-                                    </tr>
-                                )}
+                                        <td colSpan={4} style={{padding: "0"}}>
+                                            <LinearIndeterminate />
+                                        </td>
+                                    </tr> :
+                                    <>
+                                        {info.length > 0 ? (
+                                            info.map((member:any, index:any) => (
+                                                <tr key={index} onClick={() => navigate('/members/myaccount', {state: { name: member.name, email: member.email }})}>
+                                                    <td className="user-row user-col">
+                                                        <img src="../public/avatar.png" alt="" />
+                                                        <span>{member.name}</span>
+                                                    </td>
+                                                    <td className="mail email-col">{member.email}</td>
+                                                    <td className="role role-col">{member.role.name}</td>
+                                                    <td className="user-row2 access-col"><span>All</span><i className="fa-solid fa-angle-right arrow1"></i></td>                                                </tr>
 
+                                            ))
+                                        ) : (
+                                            <tr className="w-[100vw] ">
+                                                <td colSpan={4} style={{padding: "10px", paddingLeft: '10px'}} className="loading">No members found!</td>
+                                            </tr>
+                                        )}
+                                    </>
+                                }
                             </tbody>
 
                         </table>
@@ -268,5 +277,3 @@ export function Member() {
         </div>
     )
 };
-
-// export default Member;

@@ -61,9 +61,20 @@ export function SignupForm() {
             if (!response.ok) {
                 throw new Error('Unprocessable content!');
             } else if (response.ok){
-                response = await response.json()
-                console.log('Response: ', response);
-                localStorage.setItem("user-info", JSON.stringify(response))
+                let responseData = await response.json();
+                // store user details and basic auth credentials in local storage 
+                // to keep user logged in between page refreshes
+            
+                // Assuming the token is inside the response data, e.g., responseData.token
+                const token = responseData.token;
+                const dataMessage = responseData.message;
+
+                // Store the token in localStorage
+                localStorage.setItem('authToken', token);  // Save token in localStorage
+                console.log('Token saved: ', token);
+                console.log('Message: ', dataMessage);
+
+                localStorage.setItem("user-info", JSON.stringify(responseData))
 
                  //navigate to homepage after successful login
                 setTimeout(()=> navigate('/auth/signin'), 2000); //delayed to allow toast display
@@ -75,9 +86,9 @@ export function SignupForm() {
             }
                 
            
-        } catch (error) {
-            console.error("error:", error);
-            toast.error("The email has already been taken.", {
+        } catch (dataMessage) {
+            console.error("error:", dataMessage);
+            toast.error(`${dataMessage}`, {
                 position: "bottom-right",
                 draggable: true
             })

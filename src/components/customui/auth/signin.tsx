@@ -18,8 +18,15 @@ import { SigninformSchema } from "../../../lib/schema"
 import { useNavigate } from "react-router-dom";
 import { Bounce, ToastContainer, toast } from 'react-toastify'; 
 import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "@/AuthContext"
 
-export function SigninForm() {
+
+// Define the type for the SignIn props
+interface SignInProps {
+    onLogin: (email: string, password: string) => void;
+}
+
+export const SigninForm: React.FC<SignInProps> = ({ onLogin }) => {
 
     const[isLoading, setIsLoading]= useState<boolean>(false);
     const navigate = useNavigate();
@@ -31,12 +38,20 @@ export function SigninForm() {
         },
     })
 
+    const { signIn } = useAuth();
+
     async function onSubmit(values: z.infer<typeof SigninformSchema>) {
         //destructure the details
         const {
             email,
             password
         }=values;
+
+        onLogin(email, password);  // Pass credentials to the parent or another component
+
+        const user = {username: email, psw: password}
+        // Call signIn and store user data
+        signIn(user);
 
         let details = {email, password};
         setIsLoading(true);
@@ -57,24 +72,34 @@ export function SigninForm() {
                 throw new Error('Unprocessable content!');
             }
 
-            response = await response.json();
+            let responseData = await response.json();
                 // store user details and basic auth credentials in local storage 
                 // to keep user logged in between page refreshes
-            localStorage.setItem("user-info", JSON.stringify(response));
-            console.log('Response: ', response);
+            
+            // Assuming the token is inside the response data, e.g., responseData.token
+            const token = responseData.token;
+            const dataMessage = responseData.message;
+
+            // Store the token in localStorage
+            localStorage.setItem('authToken', token);  // Save token in localStorage
+            console.log('Token saved: ', token);
+            console.log('Message: ', dataMessage);
+            
+            localStorage.setItem("user-info", JSON.stringify(responseData));
+            console.log('Response: ', responseData);
             
             //navigate to homepage after successful login
             setTimeout(()=> navigate('/'), 2000); //delayed to allow toast display
 
-            toast.success("User Logged In Successfully!!!", {
+            toast.success(`${dataMessage}`, {
                 position: "bottom-right",
                 draggable: true
             })
                       
-        } catch (error) {
+        } catch (dataMessage) {
             //catch and log error
-            console.error("error:", error);
-            toast.error("Invalid Credentials", {
+            console.error("error:", dataMessage);
+            toast.error(`${dataMessage}`, {
                 position: "bottom-right",
                 draggable: true
             })

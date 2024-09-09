@@ -4,6 +4,9 @@
     height: max-content;
     width: 100%;
 
+    @include miniDesktop {
+        height: 100vh;
+    }
     .body {
         display: flex;
         align-items: center;
@@ -207,6 +210,12 @@
                             }
                         }
 
+                    }
+
+                    
+                    .loading {
+                        font-size: 15px;
+                        width: 50%;
                     }
                 }
                 
