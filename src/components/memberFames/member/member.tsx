@@ -28,13 +28,27 @@ const backdropVariant = {
   },
 };
 
-export function Member() {
+interface Role {
+  name: string; // Assuming role has a 'name' property
+  id: number; // You can add more properties if necessary, like 'id'
+}
+
+// Define the MemberProps interface using Role
+interface MemberProps {
+  role: Role; // Use the Role interface instead of 'any'
+  email: string;
+  password: string;
+  role_id: number;
+  name: string;
+}
+
+const Member: React.FC<Role> = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [memberLoading, setMemberLoading] = useState<boolean>(false);
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
   const [error, setError] = useState(null);
-  const [info, setInfo] = useState<any[]>([]);
+  const [info, setInfo] = useState<MemberProps[]>([]);
 
   const [detail, setDetail] = useState({
     name: "",
@@ -51,11 +65,11 @@ export function Member() {
     setOpen(true);
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     //extract the value of the radio button clicked.
-    const { value } = e.target;
+    const { value } = event.target;
     // alert(`${name} : ${value}`);
-    detail.role_id = value;
+    detail.role_id = parseInt(value);
   };
 
   async function submitInvite(e: React.FormEvent) {
@@ -181,7 +195,7 @@ export function Member() {
                 ) : (
                   <>
                     {info.length > 0 ? (
-                      info.map((member: any, index: any) => (
+                      info.map((member, index) => (
                         <tr
                           key={index}
                           onClick={() =>
@@ -331,4 +345,6 @@ export function Member() {
       </div>
     </div>
   );
-}
+};
+
+export default Member;

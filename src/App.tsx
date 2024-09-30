@@ -13,7 +13,7 @@ import { AppDownloadPage } from "./pages/app/appdownload";
 import { NativePluginPage } from "./pages/app/native_pugin";
 import { AppServicePage } from "./pages/app/app_service";
 import { AppAccessPage } from "./pages/app/app_access";
-import { Member } from "./components/memberFames/member/member";
+// import { Member } from "./components/memberFames/member/member";
 import { MyAccount } from "./components/myAccount/MyAccount";
 import { Settings } from "./components/settings/Settings";
 import { SupportPage } from "./components/supportPage/SupportPage";
@@ -22,16 +22,17 @@ import { NativeNavigation } from "./components/nativeNavigation/NativeNavigation
 import { EditApp } from "./components/EditApp/EditApp";
 import { CreateAppOverview } from "./components/CreateAppOverview/CreateAppOverview";
 import { Plan } from "./components/plan/Plan";
-import { useState } from "react";
+// import { useState } from "react";
 import { AuthProvider } from "./AuthContext";
 import PrivateRoute from "./PrivateRoute";
+import Member from "./components/memberFames/member/member";
 
 const App: React.FC = () => {
-  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  // const [credentials, setCredentials] = useState({ email: "", password: "" });
 
-  const handleLogin = (email: string, password: string) => {
-    setCredentials({ email, password });
-  };
+  // const handleLogin = (email: string, password: string) => {
+  //   setCredentials({ email, password });
+  // };
 
   return (
     <AuthProvider>
@@ -59,10 +60,15 @@ const App: React.FC = () => {
             <Route
               path="/app/members"
               element={
-                <Member
-                  email={credentials.email}
-                  password={credentials.password}
-                />
+                <PrivateRoute>
+                  <Member
+                    // email={credentials.email}
+                    // password={credentials.password}
+                    // role_id={0}
+                    name={""}
+                    id={0}
+                  />
+                </PrivateRoute>
               }
             />
             <Route
