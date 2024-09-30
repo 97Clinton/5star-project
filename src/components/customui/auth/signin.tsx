@@ -21,11 +21,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "@/AuthContext";
 
 // Define the type for the SignIn props
-interface SignInProps {
-  onLogin: (email: string, password: string) => void;
-}
+// interface SignInProps {
+//   onLogin: (email: string, password: string) => void;
+// }
 
-export const SigninForm: React.FC<SignInProps> = ({ onLogin }) => {
+export const SigninForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const navigate = useNavigate();
   const form = useForm<z.infer<typeof SigninformSchema>>({
@@ -42,7 +42,7 @@ export const SigninForm: React.FC<SignInProps> = ({ onLogin }) => {
     //destructure the details
     const { email, password } = values;
 
-    onLogin(email, password); // Pass credentials to the parent or another component
+    //onLogin(email, password); // Pass credentials to the parent or another component
 
     const user = { username: email, psw: password };
     // Call signIn and store user data
