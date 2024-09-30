@@ -41,22 +41,47 @@ const App: React.FC = () => {
           <Route path="/" element={<DashboardHome />} />
           <Route path="members">
             {/* <Route path="/members" element={<Member />} /> */}
-            <Route path="/members/myaccount" element={
-              <PrivateRoute>
-                <MyAccount />
-              </PrivateRoute>
-              } /> 
+            <Route
+              path="/members/myaccount"
+              element={
+                <PrivateRoute>
+                  <MyAccount />
+                </PrivateRoute>
+              }
+            />
           </Route>
           {/* <Route path="settings">
             <Route path="/settings" element={<Settings />} />
           </Route> */}
-          
+
           <Route path="app">
             <Route path="/app/settings" element={<Settings />} />
-            <Route path="/app/members" element={<Member email={credentials.email} password={credentials.password} />} />
-            <Route path="/app/overview" element={<CreateAppOverview />} />
+            <Route
+              path="/app/members"
+              element={
+                <Member
+                  email={credentials.email}
+                  password={credentials.password}
+                />
+              }
+            />
+            <Route
+              path="/app/overview"
+              element={
+                <PrivateRoute>
+                  <CreateAppOverview />
+                </PrivateRoute>
+              }
+            />
             <Route path="/app/editApp" element={<EditApp />} />
-            <Route path="/app/edit/overview" element={<OverviewPage />} />
+            <Route
+              path="/app/edit/overview"
+              element={
+                <PrivateRoute>
+                  <OverviewPage />
+                </PrivateRoute>
+              }
+            />
             <Route path="/app/:action/branding" element={<BrandingPage />} />
             <Route path="/app/:action/interface" element={<InterfacePage />} />
             <Route
@@ -79,9 +104,18 @@ const App: React.FC = () => {
               path="/app/:action/appdownload"
               element={<AppDownloadPage />}
             />
-            <Route path="/app/:action/native_navigation" element={<NativeNavigation />} />
-            <Route path="/app/:action/push_notification" element={<PushNotification />} />
-            <Route path="/app/:action/app_service" element={<AppServicePage />} />
+            <Route
+              path="/app/:action/native_navigation"
+              element={<NativeNavigation />}
+            />
+            <Route
+              path="/app/:action/push_notification"
+              element={<PushNotification />}
+            />
+            <Route
+              path="/app/:action/app_service"
+              element={<AppServicePage />}
+            />
             <Route path="/app/:action/app_support" element={<SupportPage />} />
             <Route path="/app/:action/app_plan" element={<Plan />} />
             <Route path="/app/:action/app_access" element={<AppAccessPage />} />
@@ -91,11 +125,10 @@ const App: React.FC = () => {
             <Route path="/auth/signup" element={<SignupPage />} />
             <Route path="/auth/password_reset" element={<ResetPage />} />
           </Route>
-          
         </Routes>
       </Router>
     </AuthProvider>
   );
-}
+};
 
 export default App;
